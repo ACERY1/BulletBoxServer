@@ -8,11 +8,33 @@ class ProjectController extends Controller {
    * @param {String} path - 欲映射的文件目录
    */
   async init() {
-    // const { serverPath = path } = this.ctx.queries;
+    const { path } = this.ctx.queries;
+    this.ctx.logger.info(path)
     this.ctx.body = this.ctx.helper.APIError("参数错误，需要提供文件路径");
     // this.ctx.message = "well";
     // this.ctx.status = 500;
     // this.ctx.body = "Well";
+  }
+
+  /**
+   * 更新项目文件；文件放到http body里
+   */
+  async update() {
+
+  }
+
+  /**
+   * 接受远程命令启动测试服务
+   */
+  async server() {
+    
+  }
+
+  /**
+   * 根据项目的 appid 获取项目信息
+   */
+  async getProjectById() {
+    
   }
 }
 

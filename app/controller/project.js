@@ -20,7 +20,10 @@ class ProjectController extends Controller {
    * 更新项目文件；文件放到http body里
    */
   async update() {
-
+    this.ctx.logger.info(this.ctx.request.headers)
+    // this.ctx.set('Content-Type', 'multipart/*')
+    await this.ctx.service.file.copyFiles();
+    this.ctx.body = this.ctx.helper.APISuccess({}, 'success');
   }
 
   /**

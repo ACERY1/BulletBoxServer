@@ -6,5 +6,12 @@ module.exports = {
       data: null,
       message,
     }
+  },
+  APISuccess(data, message) {
+    return {
+      code: 0,
+      data,
+      message,
+    }
   }
 }

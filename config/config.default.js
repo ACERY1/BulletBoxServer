@@ -7,7 +7,7 @@ exports.cluster = {
 }
 exports.onerror = {
   all(err, ctx) {
-    ctx.body = '服务内部错误';
+    ctx.body = '服务器内部错误';
     ctx.status = 500;
   },
   html(err, ctx) {

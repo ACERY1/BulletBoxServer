@@ -8,7 +8,7 @@ class HomeController extends Controller {
 
   // 客户端连接
   async link() {
-    this.ctx.body = 'link success!';
+    this.ctx.body = this.ctx.helper.APISuccess({}, 'link success!');
   }
 }
 

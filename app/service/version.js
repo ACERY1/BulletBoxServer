@@ -4,7 +4,7 @@ const Service = require('egg').Service;
 class Version extends Service {
   /**
    * 在指定目录里创建app.json
-   * appID| LMT | hashVersion | name | serverPath | entry
+   * appid|  | name | servers |  desc | path | updateTime
    * @return {Boolean} false means success
    */
   async create(serverPath){

@@ -22,6 +22,7 @@ class FileRecorder extends Service {
     let stream;
     while ((stream = await parts()) != null) {
       const filename = stream.filename.toLowerCase();
+      console.log(filename)
       const target = path.join(
         this.config.baseDir,
         "web/app",
@@ -34,10 +35,12 @@ class FileRecorder extends Service {
           // 异步注意：防止文件未创建好就开始写入流
           const writeStream = fs.createWriteStream(target);
           await pump(stream, writeStream);
+          this.ctx.helper.APISuccess('deploy successfully!')
         });
       } else {
         const writeStream = fs.createWriteStream(target);
         await pump(stream, writeStream);
+        this.ctx.helper.APISuccess('deploy successfully!')
       }
     }
   }

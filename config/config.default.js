@@ -15,6 +15,10 @@ module.exports = appInfo => ({
     prefix: '/webapp/',
     dir: require('path').join(appInfo.baseDir, 'webapp'),
   },
+  multipart: {
+    fields: 300,
+    files: 300,
+  },
   onerror : {
     all(err, ctx) {
       ctx.body = '服务器内部错误';

@@ -21,6 +21,7 @@ class FileRecorder extends Service {
     let stream;
     while ((stream = await parts()) != null) {
       const filename = stream.filename.toLowerCase();
+      // console.log(filename)
       const target = path.join(
         this.config.baseDir,
         path.join("/webapp", this.ctx.query.path || 'default'),

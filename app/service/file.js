@@ -16,16 +16,14 @@ class FileRecorder extends Service {
    * 将文件拷贝到指定的目录里
    * 如果没有目录则创建目录
    */
-  async copyFiles(filePath) {
+  async copyFiles() {
     const parts = this.ctx.multipart({ autoFields: true });
-
     let stream;
     while ((stream = await parts()) != null) {
       const filename = stream.filename.toLowerCase();
-      console.log(filename)
       const target = path.join(
         this.config.baseDir,
-        "web/app",
+        path.join("/webapp", this.ctx.query.path || 'default'),
         stream.fieldname
       );
       const isExists = await fs.exists(path.dirname(target));
